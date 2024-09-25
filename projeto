@@ -1,0 +1,61 @@
+public class Pilha {
+    private Lente[] elementos;
+    private int tamanho;
+
+    public Pilha(int capacidade) {
+        elementos = new Lente[capacidade];
+        tamanho = 0;
+    }
+
+    public void push(Lente lente) {
+        if (tamanho < elementos.length) {
+            elementos[tamanho] = lente;
+            tamanho++;
+        } else {
+            System.out.println("Pilha cheia!");
+        }
+    }
+
+    public Lente pop() {
+        if (tamanho > 0) {
+            Lente lente = elementos[tamanho - 1];
+            elementos[tamanho - 1] = null;
+            tamanho--;
+            return lente;
+        } else {
+            System.out.println("Pilha vazia!");
+            return null;
+        }
+    }
+
+    public Lente peek() {
+        if (tamanho > 0) {
+            return elementos[tamanho - 1];
+        } else {
+            System.out.println("Pilha vazia!");
+            return null;
+        }
+    }
+
+    public int size() {
+        return tamanho;
+    }
+}
+
+public class Lente {
+    private String marca;
+    private String tipo;
+
+    public Lente(String marca, String tipo) {
+        this.marca = marca;
+        this.tipo = tipo;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+}
